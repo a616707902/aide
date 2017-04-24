@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.aide.chenpan.myaide"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //加载图片的框架
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    //权限
+    apt 'com.zhy:mpermission-compiler:1.0.0'
+    compile 'com.zhy:mpermission-api:1.0.0'
+    //rxandroid
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'io.reactivex:rxandroid:1.0.1'
+
+    //圆角view
+    compile 'com.makeramen:roundedimageview:2.2.1'
+    //守护进程 用法详见：https://github.com/Coolerfall/Android-AppDaemon
+    compile project(':daemon')
+    //网络请求库，用法详见：张鸿洋  https://github.com/hongyangAndroid/okhttputils  详细用法
+    compile project(':okhttputils')
+    //下拉刷新的库 用法详见：http://blog.csdn.net/lmj623565791/article/details/38238749
+    compile project(':PullToRefresh')
+    //手势关闭界面的库：用法：https://github.com/ikew0ng/SwipeBackLayout
+    // 简书：http://www.jianshu.com/p/92b884d8471c
+    compile project(':SwipeBackLayout')
+}

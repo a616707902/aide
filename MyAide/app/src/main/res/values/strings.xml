@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyAide</string>
+
+    <string name="turn">%1$s转%2$s</string>
+    <string name="version">1.0.0.0</string>
+    <!--welcome-->
+    <string name="aide_version">生活助手 v%1$s</string>
+    <string name="aide_slogan">准时叫醒你的梦想</string>
+    <string name="copyright">© 2016 咖枯. All Rights Reserved.</string>
+</resources>
