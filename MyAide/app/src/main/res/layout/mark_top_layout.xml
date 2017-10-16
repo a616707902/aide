@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_search_toolbar_text"
+    android:paddingLeft="@dimen/dp_10"
+    android:paddingRight="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_5"
+    android:paddingBottom="@dimen/dp_5"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/mark_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/medium"
+        tools:text="JS"
+        android:textColor="@color/black_trans70"/>
+    <TextView
+        android:id="@+id/mark_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/dp_200"
+        android:textSize="@dimen/small"
+        android:singleLine="true"
+        android:textColor="@color/black_trans50"/>
+</LinearLayout>

@@ -1,21 +1,35 @@
 package com.aide.chenpan.myaide.activity;
 
+import android.Manifest;
 import android.animation.FloatEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.content.PermissionChecker;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aide.chenpan.myaide.R;
 import com.aide.chenpan.myaide.base.BaseActivity;
+import com.aide.chenpan.myaide.common.AideApplication;
+import com.aide.chenpan.myaide.common.Common;
+import com.aide.chenpan.myaide.common.Constants;
 import com.aide.chenpan.myaide.mvp.presenter.BasePresenter;
+import com.aide.chenpan.myaide.service.LocationService;
 import com.aide.chenpan.myaide.utils.CommonUtils;
 import com.aide.chenpan.myaide.utils.SharedPreferencesUtils;
+import com.aide.chenpan.myaide.utils.ToastUtil;
 import com.aide.chenpan.myaide.utils.WallpaperUtils;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.zhy.m.permission.MPermissions;
+import com.zhy.m.permission.PermissionDenied;
+import com.zhy.m.permission.PermissionGrant;
 
 import java.util.Calendar;
 
@@ -36,6 +50,7 @@ public class WelComeActivity extends BaseActivity {
     TextView weacSloganTv;
     @Bind(R.id.logo_rlyt)
     RelativeLayout logoRlyt;
+    private LocationService locationService;
 
     @Override
     protected int getLayoutId() {
@@ -60,7 +75,7 @@ public class WelComeActivity extends BaseActivity {
         setSwipeBackEnable(false);
         WallpaperUtils.setStatusBarTranslucent(this);
 
-
+        initLocationManager();
     }
 
     @Override
@@ -111,14 +126,37 @@ public class WelComeActivity extends BaseActivity {
      * 第一次走Splash
      */
     private void goToActivity() {
-        if (SharedPreferencesUtils.isFirst(this)) {
-            CommonUtils.startActivity(this, MainActivity.class);
-        } else {
-            CommonUtils.startActivity(this, MainActivity.class);
 
+        PackageInfo info = null;
+        try {
+            info = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
-        overridePendingTransition(0, android.R.anim.fade_out);
-        finish();
+
+        int targetSdkVersion = info.applicationInfo.targetSdkVersion;
+
+        if (targetSdkVersion >= 23) {
+            MPermissions.requestPermissions(WelComeActivity.this, Common.REQUECT_CODE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION);
+        } else {
+            if (PermissionChecker.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PermissionChecker.PERMISSION_GRANTED) {
+                CommonUtils.startActivity(this, MainActivity.class);
+                overridePendingTransition(0, android.R.anim.fade_out);
+                finish();
+            } else {
+
+            }
+        }
+
+        //      if (SharedPreferencesUtils.isFirst(this)) {
+//            CommonUtils.startActivity(this, GuidanceActivity.class);
+//        } else {
+
+        // CommonUtils.startActivity(this, MainActivity.class);
+
+//        }
+
+
     }
 
     /**
@@ -165,5 +203,91 @@ public class WelComeActivity extends BaseActivity {
             resId = R.drawable.night;
         }
         return resId;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        MPermissions.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+
+    @PermissionGrant(Common.REQUECT_CODE_LOCATION)
+    public void requestLocationSuccess() {
+        CommonUtils.startActivity(this, MainActivity.class);
+        overridePendingTransition(0, android.R.anim.fade_out);
+        finish();
+    }
+
+    @PermissionDenied(Common.REQUECT_CODE_LOCATION)
+    public void requestLocationFailed() {
+        //ToastUtil.showShortToast(this,"失败");
+    }
+
+
+    /**
+     * 初始化定位管理监听
+     */
+    private void initLocationManager() {
+
+        locationService = ((AideApplication) getApplication()).locationService;
+        //获取locationservice实例，建议应用中只初始化1个location实例，然后使用，可以参考其他示例的activity，都是通过此种方式获取locationservice实例的
+        locationService.registerListener(mWelcomListener);
+        locationService.setLocationOption(locationService.getDefaultLocationClientOption());
+        locationService.start();
+
+    }
+
+    /*****
+     * 定位结果回调，重写onReceiveLocation方法，可以直接拷贝如下代码到自己工程中修改
+     */
+    private BDLocationListener mWelcomListener = new BDLocationListener() {
+
+        @Override
+        public void onReceiveLocation(BDLocation location) {
+            // TODO Auto-generated method stub
+            if (null != location && location.getLocType() != BDLocation.TypeServerError) {
+                locationService.stop();
+                locationService.unregisterListener(mWelcomListener);
+                //定位成功
+                //实现BDLocationListener接口
+                //BDLocation类，封装了定位SDK的定位结果，在BDLocationListener的onReceiveLocation方法中获取，
+                // onReceiveLocation方法当返回的是网络类型定位时是在子线程中执行了，如果有UI操作，请注意。
+
+                if (161 == location.getLocType()) {
+                    Constants.bdLocation=location;
+                    String cityName = location.getCity();
+                    if (cityName != null) {
+                        //   mCityWeatherCode = getString(R.string.auto_location);
+                        //  String  mCityWeatherCode = location.getCityCode();
+                        // 初次加载定位保存
+                        SharedPreferencesUtils.saveString(WelComeActivity.this, Constants.LOCATION_CITY_NAME, cityName);
+                        if (SharedPreferencesUtils.getString(WelComeActivity.this, Constants.DEFAULT_CITY_NAME, null) == null) {
+                            SharedPreferencesUtils.saveString(WelComeActivity.this, Constants.DEFAULT_CITY_NAME, cityName);
+                            // SharedPreferencesUtils.saveString(WelComeActivity.this, Constants.DEFAULT_WEATHER_CODE, mCityWeatherCode);
+
+                        }
+                        // 立刻更新
+                    } else {
+                        ToastUtil.showShortToast(WelComeActivity.this, getString(R.string.can_not_find_current_location));
+                    }
+
+                } else {
+                    ToastUtil.showShortToast(WelComeActivity.this, getString(R.string.location_fail));
+                }
+            } else {
+                ToastUtil.showShortToast(WelComeActivity.this, getString(R.string.auto_location_error_retry));
+            }
+        }
+
+        public void onConnectHotSpotMessage(String s, int i) {
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        locationService.stop();
+        super.onDestroy();
+
     }
 }

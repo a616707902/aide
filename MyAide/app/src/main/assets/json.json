@@ -1,0 +1,382 @@
+{
+  "allTagsList": [
+    {
+      "tagsName": "热",
+      "tagsId": "1",
+      "tagInfoList": [
+        {
+          "tagType": "10",
+          "tagName": "美食",
+          "tagId": "101"
+        },
+        {
+          "tagType": "10",
+          "tagName": "酒店",
+          "tagId": "102"
+        },
+        {
+          "tagType": "10",
+          "tagName": "景点",
+          "tagId": "103"
+        },
+        {
+          "tagType": "10",
+          "tagName": "停车场",
+          "tagId": "104"
+        },
+        {
+          "tagType": "10",
+          "tagName": "加油站",
+          "tagId": "105"
+        },
+        {
+          "tagType": "10",
+          "tagName": "公交站",
+          "tagId": "106"
+        },
+        {
+          "tagType": "10",
+          "tagName": "地铁站",
+          "tagId": "107"
+        },
+        {
+          "tagType": "10",
+          "tagName": "银行",
+          "tagId": "108"
+        },
+        {
+          "tagType": "10",
+          "tagName": "超市",
+          "tagId": "109"
+        },
+        {
+          "tagType": "10",
+          "tagName": "洗浴",
+          "tagId": "110"
+        }
+      ]
+    },
+    {
+      "tagsName": "吃",
+      "tagsId": "2",
+      "tagInfoList": [
+        {
+          "tagType": "20",
+          "tagName": "美食",
+          "tagId": "201"
+        },
+        {
+          "tagType": "20",
+          "tagName": "肯德基",
+          "tagId": "202"
+        },
+        {
+          "tagType": "20",
+          "tagName": "麦当劳",
+          "tagId": "203"
+        },
+        {
+          "tagType": "20",
+          "tagName": "中餐",
+          "tagId": "204"
+        },
+        {
+          "tagType": "20",
+          "tagName": "快餐",
+          "tagId": "204"
+        },
+        {
+          "tagType": "20",
+          "tagName": "火锅",
+          "tagId": "205"
+        },
+        {
+          "tagType": "20",
+          "tagName": "川菜",
+          "tagId": "206"
+        },
+        {
+          "tagType": "20",
+          "tagName": "西餐",
+          "tagId": "207"
+        },
+        {
+          "tagType": "20",
+          "tagName": "蛋糕店",
+          "tagId": "208"
+        },
+        {
+          "tagType": "20",
+          "tagName": "咖啡厅",
+          "tagId": "209"
+        }
+      ]
+    },
+    {
+      "tagsName": "住",
+      "tagsId": "3",
+      "tagInfoList": [
+        {
+          "tagType": "30",
+          "tagName": "酒店",
+          "tagId": "301"
+        },
+        {
+          "tagType": "30",
+          "tagName": "快捷酒店",
+          "tagId": "302"
+        },
+        {
+          "tagType": "30",
+          "tagName": "三星级酒店",
+          "tagId": "303"
+        },
+        {
+          "tagType": "30",
+          "tagName": "青年旅社",
+          "tagId": "304"
+        },
+        {
+          "tagType": "30",
+          "tagName": "汉庭",
+          "tagId": "305"
+        },
+        {
+          "tagType": "30",
+          "tagName": "如家",
+          "tagId": "306"
+        }
+      ]
+    },
+    {
+      "tagsName": "行",
+      "tagsId": "4",
+      "tagInfoList": [
+        {
+          "tagType": "40",
+          "tagName": "公交站",
+          "tagId": "401"
+        },
+        {
+          "tagType": "40",
+          "tagName": "地铁站",
+          "tagId": "402"
+        },
+        {
+          "tagType": "40",
+          "tagName": "加油站",
+          "tagId": "403"
+        },
+        {
+          "tagType": "40",
+          "tagName": "火车站",
+          "tagId": "404"
+        },
+        {
+          "tagType": "40",
+          "tagName": "停车场",
+          "tagId": "405"
+        },
+        {
+          "tagType": "40",
+          "tagName": "火车票代售",
+          "tagId": "406"
+        }
+      ]
+    },
+    {
+      "tagsName": "玩",
+      "tagsId": "5",
+      "tagInfoList": [
+        {
+          "tagType": "50",
+          "tagName": "网吧",
+          "tagId": "501"
+        },
+        {
+          "tagType": "50",
+          "tagName": "KTV",
+          "tagId": "502"
+        },
+        {
+          "tagType": "50",
+          "tagName": "电影院",
+          "tagId": "503"
+        },
+        {
+          "tagType": "5",
+          "tagName": "洗浴",
+          "tagId": "504"
+        },
+        {
+          "tagType": "50",
+          "tagName": "足疗",
+          "tagId": "505"
+        },
+        {
+          "tagType": "50",
+          "tagName": "台球",
+          "tagId": "506"
+        },
+        {
+          "tagType": "50",
+          "tagName": "酒吧",
+          "tagId": "507"
+        },
+        {
+          "tagType": "50",
+          "tagName": "夜店",
+          "tagId": "508"
+        }
+      ]
+    },
+    {
+      "tagsName": "游",
+      "tagsId": "6",
+      "tagInfoList": [
+        {
+          "tagType": "60",
+          "tagName": "景点",
+          "tagId": "601"
+        },
+        {
+          "tagType": "60",
+          "tagName": "公园",
+          "tagId": "602"
+        },
+        {
+          "tagType": "60",
+          "tagName": "游乐场",
+          "tagId": "603"
+        },
+        {
+          "tagType": "60",
+          "tagName": "动物园",
+          "tagId": "604"
+        },
+        {
+          "tagType": "60",
+          "tagName": "博物馆",
+          "tagId": "605"
+        },
+        {
+          "tagType": "60",
+          "tagName": "广场",
+          "tagId": "606"
+        }
+      ]
+    },
+    {
+      "tagsName": "购",
+      "tagsId": "7",
+      "tagInfoList": [
+        {
+          "tagType": "70",
+          "tagName": "超市",
+          "tagId": "701"
+        },
+        {
+          "tagType": "70",
+          "tagName": "商场",
+          "tagId": "702"
+        },
+        {
+          "tagType": "70",
+          "tagName": "团购",
+          "tagId": "703"
+        },
+        {
+          "tagType": "70",
+          "tagName": "便利店",
+          "tagId": "704"
+        },
+        {
+          "tagType": "70",
+          "tagName": "五金店",
+          "tagId": "705"
+        },
+        {
+          "tagType": "70",
+          "tagName": "步行街",
+          "tagId": "706"
+        },
+        {
+          "tagType": "70",
+          "tagName": "书店",
+          "tagId": "707"
+        },
+        {
+          "tagType": "70",
+          "tagName": "家具城",
+          "tagId": "708"
+        }
+      ]
+    },
+    {
+      "tagsName": "生活",
+      "tagsId": "8",
+      "tagInfoList": [
+        {
+          "tagType": "80",
+          "tagName": "银行",
+          "tagId": "801"
+        },
+        {
+          "tagType": "80",
+          "tagName": "ATM",
+          "tagId": "802"
+        },
+        {
+          "tagType": "80",
+          "tagName": "医院",
+          "tagId": "803"
+        },
+        {
+          "tagType": "80",
+          "tagName": "药店",
+          "tagId": "804"
+        },
+        {
+          "tagType": "80",
+          "tagName": "厕所",
+          "tagId": "805"
+        },
+        {
+          "tagType": "80",
+          "tagName": "汽车维修",
+          "tagId": "806"
+        },
+        {
+          "tagType": "80",
+          "tagName": "邮局",
+          "tagId": "807"
+        },
+        {
+          "tagType": "80",
+          "tagName": "快递",
+          "tagId": "808"
+        },
+        {
+          "tagType": "80",
+          "tagName": "洗车",
+          "tagId": "809"
+        },
+        {
+          "tagType": "80",
+          "tagName": "理发店",
+          "tagId": "810"
+        },
+        {
+          "tagType": "80",
+          "tagName": "美容院",
+          "tagId": "811"
+        },
+        {
+          "tagType": "80",
+          "tagName": "移动营业厅",
+          "tagId": "812"
+        }
+      ]
+    }
+  ]
+}

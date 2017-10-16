@@ -1,7 +1,9 @@
 package com.aide.chenpan.myaide.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.DisplayMetrics;
 
 /**
  * Created by Administrator on 2017/4/24.
@@ -26,5 +28,22 @@ public class ScreenUtils {
     public static float sp2px(Resources resources, float sp) {
         final float scale = resources.getDisplayMetrics().scaledDensity;
         return sp * scale;
+    }
+    /**
+     * 获取屏幕内容高度
+     * @param activity
+     * @return
+     */
+    public static int getScreenHeight(Activity activity) {
+        DisplayMetrics dm = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int result = 0;
+        int resourceId = activity.getResources()
+                .getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = activity.getResources().getDimensionPixelSize(resourceId);
+        }
+        int screenHeight = dm.heightPixels - result;
+        return screenHeight;
     }
 }

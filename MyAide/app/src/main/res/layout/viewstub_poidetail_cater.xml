@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        style="@style/wea_days_title_llyt">
+
+        <TextView
+            style="@style/wea_days_title_tv"
+            android:text="@string/nearbyserver"/>
+
+        <View
+            style="@style/divider_line_wea"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/nearby_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

@@ -10,7 +10,7 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder {
     public View mView;
     public T mData;
     public Context mContext;
-
+    public ItemListener mListener;
     public View getView() {
         return mView;
     }
@@ -28,9 +28,11 @@ public abstract class BaseHolder<T> extends RecyclerView.ViewHolder {
 
     }
 
-    ;
-
     public void setData(T mData) {
         this.mData = mData;
+    }
+
+    public void setmListener(ItemListener mListener) {
+        this.mListener = mListener;
     }
 }

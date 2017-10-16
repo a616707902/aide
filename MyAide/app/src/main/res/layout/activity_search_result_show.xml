@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="false"
+    android:layout_height="match_parent">
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/baidu_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.baidu.mapapi.map.MapView>
+
+    <RelativeLayout
+        android:id="@+id/float_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/bg_search_toolbar_text">
+
+        <ImageView
+            android:id="@+id/action_return"
+            style="@style/action_icon"
+            android:layout_alignParentLeft="true"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_action_previous_item_black" />
+
+        <ImageView
+            android:id="@+id/clear_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:paddingRight="5dp"
+            android:src="@drawable/ic_clear_black"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/search_city_edit_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_toLeftOf="@id/clear_btn"
+            android:layout_toRightOf="@id/action_return"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:singleLine="true"
+            android:text="@string/search_trip"
+            android:textColor="@color/black_trans80"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+
+    <com.aide.chenpan.myaide.widget.ScrollLayout
+        android:id="@+id/scroll_down_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+
+
+        <com.aide.chenpan.myaide.widget.ContentScrollView
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+
+            >
+
+            <ViewStub
+                android:id="@+id/view_stub"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_140"
+                android:layout="@layout/viewstub_poidetail_cater" />
+
+        </com.aide.chenpan.myaide.widget.ContentScrollView>
+
+        <LinearLayout
+            android:id="@+id/linear_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_130"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:maxLines="1"
+                android:textSize="@dimen/sp_18"
+                android:text="聊城大学东昌学院"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="1.0公里"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:maxLines="2"
+                android:paddingBottom="10dp"
+                android:text="四川省成都市"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+
+        <!-- <TextView
+             android:id="@+id/text_foot"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/dp_50"
+             android:background="@color/white"
+             android:clickable="true"
+             android:textColor="@color/black_trans40"
+             android:gravity="center"
+             android:text="点击查看更多" />-->
+
+
+    </com.aide.chenpan.myaide.widget.ScrollLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_to_where"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:clickable="true"
+        android:src="@drawable/to_where"
+        android:tint="@color/main_color"
+        app:layout_anchor="@id/linear_info"
+        app:layout_anchorGravity="top|right" />
+</android.support.design.widget.CoordinatorLayout>

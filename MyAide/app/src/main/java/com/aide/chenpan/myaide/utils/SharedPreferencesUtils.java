@@ -14,12 +14,25 @@ public class SharedPreferencesUtils {
 				Context.MODE_PRIVATE);
 		sp.edit().putString(key, value).commit();
 	}
+	public static void saveLong(Context mActivity, String key,
+								  Long value) {
+		SharedPreferences sp = mActivity.getSharedPreferences("config",
+				Context.MODE_PRIVATE);
+		sp.edit().putLong(key, value).commit();
+	}
 
 	public static String getString(Context mActivity, String key,
 			String defValue) {
 		SharedPreferences sp = mActivity.getSharedPreferences("config",
 				Context.MODE_PRIVATE);
 		return sp.getString(key, defValue);
+	}
+
+	public static Long getLong(Context mActivity, String key,
+								   Long defValue) {
+		SharedPreferences sp = mActivity.getSharedPreferences("config",
+				Context.MODE_PRIVATE);
+		return sp.getLong(key, defValue);
 	}
 
 	public static void setBoolean(BaseActivity mActivity, String key,

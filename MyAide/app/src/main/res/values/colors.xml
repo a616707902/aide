@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
 
     <color name="transparent">#00000000</color>
 
@@ -68,6 +72,7 @@
     <color name="dark_gray">#989898</color>
     <!-- 深灰色:取消按钮 -->
     <color name="dark_gray_button_pressed">#808080</color>
+    <color name="main_color">#05C1F1</color>
     <!-- 深灰色:取消按钮按下 -->
     <color name="blue_green">#0CCDF6</color>
     <!-- 蓝绿色:小睡 -->

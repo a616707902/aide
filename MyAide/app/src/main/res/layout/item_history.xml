@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/layout_item"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="@dimen/dp_10"
+    android:paddingRight="@dimen/dp_10"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        tools:src="@drawable/ic_search"
+        android:padding="@dimen/dp_5"
+        android:layout_alignParentLeft="true" />
+
+    <ImageView
+        android:id="@+id/img_gowhere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_5"
+        android:layout_centerVertical="true"
+        tools:src="@drawable/gowhere_icon"
+        android:layout_alignParentRight="true" />
+
+    <LinearLayout
+        android:id="@+id/layout_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img_head"
+        android:layout_toLeftOf="@id/img_gowhere"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_30"
+            android:textColor="@color/white"
+            tools:text="案件十大是可敬的"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/big_small" />
+
+        <TextView
+            android:id="@+id/address_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:textColor="@color/white_trans50"
+            tools:text="萨菲隆"
+            android:textSize="@dimen/small" />
+
+    </LinearLayout>
+    <View
+        style="@style/divider_line_wea"
+        android:layout_below="@id/layout_show"
+        android:layout_marginLeft="@dimen/dp_33"
+        />
+</RelativeLayout>

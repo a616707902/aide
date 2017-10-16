@@ -15,6 +15,7 @@ public class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>> 
     private List<T> mDatas;
     private int mResLayout;
     private Class<? extends BaseHolder<T>> mClazz;
+    private ItemListener listener;
 
     public void setmDatas(List<T> mDatas) {
         this.mDatas = mDatas;
@@ -57,6 +58,18 @@ public class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>> 
         this.mResLayout = mResLayout;
         this.mClazz = mClazz;
     }
+    public BaseRecyclerAdapter(List<T> mDatas, int mResLayout, Class<? extends BaseHolder<T>> mClazz,ItemListener listener) {
+        if (mClazz == null) {
+            throw new RuntimeException("clazz is null,please check your params !");
+        }
+        if (mResLayout == 0) {
+            throw new RuntimeException("res is null,please check your params !");
+        }
+        this.mDatas = mDatas;
+        this.mResLayout = mResLayout;
+        this.mClazz = mClazz;
+        this.listener=listener;
+    }
 
     public HashMap<Integer, Object> tags = new HashMap<>();
 
@@ -91,6 +104,8 @@ public class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseHolder<T>> 
     @Override
     public void onBindViewHolder(final BaseHolder<T> holder, int position) {
         holder.setData(mDatas.get(position));
+        holder.setmListener(listener);
+
     }
 
     @Override

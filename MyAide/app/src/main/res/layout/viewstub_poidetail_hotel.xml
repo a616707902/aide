@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout style="@style/wea_days_title_llyt">
+
+        <TextView
+            style="@style/wea_days_title_tv"
+            android:text="@string/detial_message" />
+
+        <View
+            style="@style/divider_line_wea"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.deanguo.ratingview.RatingView
+            android:id="@+id/rating_view"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/center_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/rating_all"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+        </com.deanguo.ratingview.RatingView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/more_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tag_bg"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium"
+                android:layout_gravity="right"
+                android:text="@string/more_detail"
+                android:padding="@dimen/dp_5"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/hotel_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/dp_5"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="@dimen/big_small" />
+
+            <TextView
+                android:id="@+id/hotel_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/dp_5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/big_small" />
+
+            <com.aide.chenpan.myaide.widget.TagLayout
+                android:id="@+id/taglayout"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/divider_line_wea"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/nearby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/icon_nearby"
+            android:drawablePadding="@dimen/dp_0"
+            android:gravity="center"
+            android:text="@string/search_neary"
+            android:textColor="@color/white"
+            android:textSize="@dimen/big_small" />
+
+        <View
+            style="@style/divider_line_wea_vertical"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:id="@+id/navigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/icon_navigation_p"
+            android:drawablePadding="@dimen/dp_0"
+            android:gravity="center"
+            android:text="@string/navigate"
+            android:textColor="@color/white"
+            android:textSize="@dimen/big_small" />
+
+        <View
+            style="@style/divider_line_wea_vertical"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:id="@+id/call_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/icon_callphone"
+            android:drawablePadding="@dimen/dp_0"
+            android:gravity="center"
+            android:text="@string/call_phone"
+            android:textColor="@color/white"
+            android:textSize="@dimen/big_small" />
+    </LinearLayout>
+
+    <View
+        style="@style/divider_line_wea"
+        android:layout_gravity="center" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/nearby_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

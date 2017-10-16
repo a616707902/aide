@@ -38,4 +38,10 @@ public class Common {
     public static final String SAVEFOLDER=PHONE_PATH+"/Error";
 
 
+//权限申请code
+    public final static int  REQUECT_CODE_LOCATION=1;
+    public final static int  REQUECT_CODE_SDCARD=2;
+    public final static int  REQUECT_CODE_CAMERA=3;
+    public final static int  REQUECT_CODE_CALLPHONE=4;
+
 }

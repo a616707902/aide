@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layout"
+    tools:context="com.aide.chenpan.myaide.activity.NearByDetailActivity">
+
+    <RelativeLayout
+        style="@style/action_llyt"
+       >
+
+        <ImageView
+            android:id="@+id/action_return"
+            style="@style/action_icon"
+            android:layout_alignParentLeft="true"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_action_previous_item" />
+
+        <TextView
+            android:id="@+id/action_title"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search_city_edit_text"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="2dp"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/sp_14"
+            android:gravity="center_vertical"
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/dp_250"
+            android:paddingLeft="@dimen/dp_5"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="@string/search_in_nearby" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_height="fill_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/dialog"
+            android:layout_width="80.0dip"
+            android:layout_height="80.0dip"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="30.0dip"
+            android:visibility="invisible" />
+
+        <com.aide.chenpan.myaide.widget.SideBar
+            android:id="@+id/sidrbar"
+            android:layout_width="30.0dip"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+
+</LinearLayout>

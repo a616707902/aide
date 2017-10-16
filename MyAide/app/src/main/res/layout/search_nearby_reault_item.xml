@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/dp_10">
+
+    <ImageView
+        android:id="@+id/image_icon"
+        android:layout_width="@dimen/dp_100"
+        tools:src="@drawable/icon_callphone"
+        android:layout_height="@dimen/dp_140" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_35"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/dp_5"
+            android:textColor="@color/black_trans80"
+            android:textSize="@dimen/sp_16"
+            tools:text="火车南站" />
+
+        <TextView
+            android:id="@+id/distance_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:textColor="@color/black_trans40"
+            android:textSize="@dimen/sp_12"
+            tools:text="火车南站" />
+
+        <TextView
+            android:id="@+id/address_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:textColor="@color/black_trans60"
+            android:textSize="@dimen/sp_14"
+            tools:text="火车南站" />
+        <com.whinc.widget.ratingbar.RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_30"
+            app:rb_max_count="5"
+            app:rb_empty="@drawable/empty"
+            app:rb_fill="@drawable/fill"
+            app:rb_space="10dp"
+            app:rb_click_rating="false"
+            android:visibility="gone"
+            app:rb_touch_rating="false"
+            />
+        <TextView
+            android:id="@+id/times"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20"
+            android:textColor="@color/black_trans60"
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone"
+            tools:text="火车南站"
+            />
+    </LinearLayout>
+
+</LinearLayout>

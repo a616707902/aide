@@ -453,4 +453,44 @@ public class WallpaperUtils {
 //            }
         }
     }
+
+    /**
+     * 取得模糊处理后的壁纸资源Bitmap
+     *
+     * @param context context
+     * @return 壁纸资源 Bitmap
+     */
+    public static Bitmap getWallPaperBlurBitmap(Context context) {
+        Bitmap bitmap;
+
+        // 第一次解析将inJustDecodeBounds设置为true，来获取图片大小
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+
+        // 取得主题背景配置信息
+        SharedPreferences share = context.getSharedPreferences(Constants.EXTRA_WEAC_SHARE,
+                Activity.MODE_PRIVATE);
+        String value = share.getString(Constants.WALLPAPER_PATH, null);
+        // 默认壁纸为自定义
+        if (value != null) {
+            try {
+                BitmapFactory.decodeStream(new FileInputStream(new File(value)), null, options);
+                // 设置图片模糊度为20
+                options.inSampleSize = 20;
+                options.inJustDecodeBounds = false;
+                // 使用设置的inSampleSize值再次解析图片
+                bitmap = BitmapFactory.decodeStream(new FileInputStream(new File(value)),
+                        null, options);
+                bitmap = fastBlur(context, 0, value, bitmap, 20);
+            } catch (FileNotFoundException e) {
+//                LogUtil.e(LOG_TAG, "getWallPaperBlurDrawable(Context context): " + e.toString());
+                bitmap = setWallpaperBlur(context, options, share);
+            }
+        } else {
+            bitmap = setWallpaperBlur(context, options, share);
+        }
+
+        // 返回经过毛玻璃模糊度20处理后的Bitmap
+        return bitmap;
+    }
 }
